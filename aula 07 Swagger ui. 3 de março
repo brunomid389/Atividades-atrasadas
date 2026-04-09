@@ -1,0 +1,426 @@
+Primeiro passo:
+npm create vite@latest vite-project -- --template react-ts
+cd vite-project
+npm install
+npm install swagger-ui-react
+npm install --save-dev @types/swagger-ui-react
+
+Segundo Passo:
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Gerenciamento de Alunos",
+    "description": "API para gerenciar alunos e suas turmas",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Suporte",
+      "email": "suporte@escola.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Servidor de Desenvolvimento"
+    }
+  ],
+  "paths": {
+    "/alunos": {
+      "get": {
+        "summary": "Lista todos os alunos",
+        "description": "Retorna uma lista de todos os alunos cadastrados. Pode ser filtrada por turma.",
+        "tags": ["Alunos"],
+        "parameters": [
+          {
+            "name": "turma",
+            "in": "query",
+            "description": "Filtrar alunos por turma (exemplo: 2A, 3B)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2A"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de alunos retornada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aluno"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "nome": "João Silva",
+                    "idade": 15,
+                    "turma": "2A",
+                    "email": "joao.silva@escola.com",
+                    "matricula": "2024001"
+                  },
+                  {
+                    "id": 2,
+                    "nome": "Maria Santos",
+                    "idade": 14,
+                    "turma": "2A",
+                    "email": "maria.santos@escola.com",
+                    "matricula": "2024002"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida - parâmetros incorretos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "code": 400,
+                  "message": "Parâmetro 'turma' inválido",
+                  "details": "O formato da turma deve ser uma letra maiúscula seguida de um número (ex: 2A)"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/alunos/{id}": {
+      "get": {
+        "summary": "Busca um aluno por ID",
+        "description": "Retorna os dados de um aluno específico baseado no ID fornecido",
+        "tags": ["Alunos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID único do aluno",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Aluno encontrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aluno"
+                },
+                "example": {
+                  "id": 1,
+                  "nome": "João Silva",
+                  "idade": 15,
+                  "turma": "2A",
+                  "email": "joao.silva@escola.com",
+                  "matricula": "2024001"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida - ID em formato incorreto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "code": 400,
+                  "message": "ID inválido",
+                  "details": "O ID deve ser um número inteiro positivo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aluno não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "example": {
+                  "code": 404,
+                  "message": "Aluno não encontrado",
+                  "details": "Não existe nenhum aluno cadastrado com o ID fornecido"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Aluno": {
+        "type": "object",
+        "required": ["id", "nome", "idade", "turma", "matricula"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID único do aluno",
+            "example": 1
+          },
+          "nome": {
+            "type": "string",
+            "description": "Nome completo do aluno",
+            "minLength": 3,
+            "maxLength": 100,
+            "example": "João Silva"
+          },
+          "idade": {
+            "type": "integer",
+            "description": "Idade do aluno em anos",
+            "minimum": 6,
+            "maximum": 18,
+            "example": 15
+          },
+          "turma": {
+            "type": "string",
+            "description": "Turma do aluno (formato: número + letra)",
+            "pattern": "^[1-9][A-Z]$",
+            "example": "2A"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "E-mail do aluno",
+            "example": "joao.silva@escola.com"
+          },
+          "matricula": {
+            "type": "string",
+            "description": "Número de matrícula do aluno",
+            "pattern": "^[0-9]{7}$",
+            "example": "2024001"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["code", "message"],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "Código HTTP do erro",
+            "example": 404
+          },
+          "message": {
+            "type": "string",
+            "description": "Mensagem de erro resumida",
+            "example": "Aluno não encontrado"
+          },
+          "details": {
+            "type": "string",
+            "description": "Detalhes adicionais sobre o erro",
+            "example": "Não existe nenhum aluno cadastrado com o ID fornecido"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Alunos",
+      "description": "Endpoints relacionados ao gerenciamento de alunos"
+    }
+  ]
+}
+
+terceiro:
+import SwaggerUI from 'swagger-ui-react';
+import 'swagger-ui-react/swagger-ui.css';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="header">
+        <h1>📚 API de Gerenciamento de Alunos</h1>
+        <p>Documentação interativa dos endpoints da API</p>
+      </header>
+      
+      <div className="swagger-container">
+        <SwaggerUI url="/openapi.json" />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+quarto:
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.swagger-container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Customizações do Swagger UI */
+.swagger-ui .topbar {
+  display: none;
+}
+
+.swagger-ui .info {
+  margin: 2rem 0;
+}
+
+.swagger-ui .scheme-container {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+quinto:
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.swagger-container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Customizações do Swagger UI */
+.swagger-ui .topbar {
+  display: none;
+}
+
+.swagger-ui .info {
+  margin: 2rem 0;
+}
+
+.swagger-ui .scheme-container {
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+sexto:
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+setimo:
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "swagger-ui-react": "^5.17.14"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/swagger-ui-react": "^4.18.3",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.13",
+    "globals": "^15.11.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.10.0",
+    "vite": "^5.4.10"
+  }
+}
+
+oitavo:
