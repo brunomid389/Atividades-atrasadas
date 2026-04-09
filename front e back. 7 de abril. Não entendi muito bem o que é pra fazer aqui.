@@ -1,0 +1,45 @@
+
+
+node:
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/mensagem", (req, res) => {
+    res.json({ mensagem: "Olá, React! O Node.js está funcionando!" });
+});
+
+app.listen(3001, () => {
+    console.log("Servidor rodando na porta 3001");
+});
+
+tsx:
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+function App() {
+  const [mensagem, setMensagem] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/mensagem")
+      .then((res) => {
+        setMensagem(res.data.mensagem);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar mensagem:", error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>Integração React + Node.js</h1>
+      <p>{mensagem}</p>
+    </div>
+  );
+}
+
+export default App;
