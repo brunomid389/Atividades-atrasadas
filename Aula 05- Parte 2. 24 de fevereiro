@@ -1,0 +1,147 @@
+import React, { useState } from 'react';
+import './App.css';
+
+// Componente 1 - Cabeçalho
+function Header() {
+  return (
+    <div className="header">
+      <h1>Meu Site</h1>
+      <p>é, né</p>
+    </div>
+  );
+}
+
+// Componente 2 - Sobre Mim (com STATE para mostrar/ocultar informações)
+function About() {
+  const [mostrarInfo, setMostrarInfo] = useState(false);
+
+  // Debug no console
+  console.log('About - mostrarInfo:', mostrarInfo);
+
+  function toggleInfo() {
+    setMostrarInfo(!mostrarInfo);
+    console.log('Botão clicado! Novo valor:', !mostrarInfo);
+  }
+
+  return (
+    <div className="about">
+      <h2>Sobre Mim</h2>
+      <button onClick={toggleInfo}>
+        {mostrarInfo ? 'Ocultar Informações' : 'Mostrar Informações'}
+      </button>
+      
+      {mostrarInfo && (
+        <div>
+          <p><strong>Nome:</strong> Bruno Silva</p>
+          <p><strong>E-mail:</strong> bruno.silva@email.com</p>
+          <p><strong>Github:</strong> brunosilva-dev</p>
+          <p>Gosto de muitas coisas..</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Componente 3 - Hobbies (com STATE para adicionar hobbies)
+function Hobbies() {
+  const [hobbies, setHobbies] = useState(['dormir', 'Assistir filmes', 'Ler livros']);
+  const [novoHobby, setNovoHobby] = useState('');
+
+  // Debug no console
+  console.log('Hobbies - lista atual:', hobbies);
+  console.log('Hobbies - novoHobby digitado:', novoHobby);
+
+  function adicionarHobby() {
+    if (novoHobby.trim() !== '') {
+      setHobbies([...hobbies, novoHobby]);
+      console.log('Hobby adicionado:', novoHobby);
+      setNovoHobby('');
+    } else {
+      console.log('Campo vazio! Não adicionou nada.');
+    }
+  }
+
+  return (
+    <div className="hobbies">
+      <h2>Meus objetos transicionais para a procrastinação</h2>
+      
+      {hobbies.map((hobby, index) => (
+        <p key={index}>{hobby}</p>
+      ))}
+
+      <div className="adicionar-hobby">
+        <input 
+          type="text" 
+          value={novoHobby}
+          onChange={(e) => setNovoHobby(e.target.value)}
+          placeholder="Adicionar novo hobby"
+        />
+        <button onClick={adicionarHobby}>Adicionar</button>
+      </div>
+    </div>
+  );
+}
+
+// Componente 4 - Contato (com STATE para contador de cliques)
+function Contact() {
+  const [cliques, setCliques] = useState(0);
+
+  // Debug no console
+  console.log('Contact - número de cliques:', cliques);
+
+  function incrementarCliques() {
+    setCliques(cliques + 1);
+    console.log('Clicou no botão! Total de cliques:', cliques + 1);
+  }
+
+  return (
+    <div className="contact">
+      <h2>Contato</h2>
+      <p>Email: Nãomemandeemails@email.com</p>
+      <p>Telefone: (81) 66666-9999</p>
+      
+      <button onClick={incrementarCliques}>
+        Clicou {cliques} vezes
+      </button>
+    </div>
+  );
+}
+
+// Componente 5 - Rodapé (com STATE para mudar cor)
+function Footer() {
+  const [corAtual, setCorAtual] = useState('darkgray');
+
+  // Debug no console
+  console.log('Footer - cor atual:', corAtual);
+
+  function mudarCor() {
+    const novaCor = corAtual === 'darkgray' ? 'darkblue' : 'darkgray';
+    setCorAtual(novaCor);
+    console.log('Cor mudou para:', novaCor);
+  }
+
+  return (
+    <div className="footer" style={{ backgroundColor: corAtual }}>
+      <p>© 2026 - Meu Site</p>
+      <p>HAHAHA</p>
+      <button onClick={mudarCor}>Mudar Cor do Rodapé</button>
+    </div>
+  );
+}
+
+// Componente Principal
+function App() {
+  console.log('===== APP RENDERIZADO =====');
+  
+  return (
+    <div>
+      <Header />
+      <About />
+      <Hobbies />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
