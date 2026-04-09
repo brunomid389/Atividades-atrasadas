@@ -1,0 +1,168 @@
+MAIN:
+
+import React from 'react';
+import './App.css';
+
+// Componente 1 - Cabeçalho
+function Header() {
+  return (
+    <div className="header">
+      <h1>Meu Site</h1>
+      <p>é, né</p>
+    </div>
+  );
+}
+
+// Componente 2 - Sobre Mim
+function About() {
+  return (
+    <div className="about">
+      <h2>Sobre Mim</h2>
+      <p><strong>Nome:</strong> Bruno Silva</p>
+      <p><strong>E-mail:</strong> midnight.queentech@email.com</p>
+      <p><strong>Github:</strong> brunomid389</p>
+      <p>Gosto de muitas coisas..</p>
+    </div>
+  );
+}
+
+// Componente 3 - Hobbies
+function Hobbies() {
+  return (
+    <div className="hobbies">
+      <h2>Meus objetos transicionais para a procrastinação</h2>
+      <p>dormir</p>
+      <p>Assistir filmes</p>
+      <p>Ler livros</p>
+    </div>
+  );
+}
+
+// Componente 4 - Contato
+function Contact() {
+  return (
+    <div className="contact">
+      <h2>Contato</h2>
+      <p>Email: Nãomemandeemails@email.com</p>
+      <p>Telefone: (67) 666-99666</p>
+    </div>
+  );
+}
+
+// Componente 5 - Rodapé
+function Footer() {
+  return (
+    <div className="footer">
+      <p>© 2026 - Meu Site</p>
+      <p>HAHAHA</p>
+    </div>
+  );
+}
+
+// Componente Principal
+function App() {
+  return (
+    <div>
+      <Header />
+      <About />
+      <Hobbies />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
+CSS:
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Componente 1 - Header */
+.header {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  margin: 10px 0 0 0;
+}
+
+/* Componente 2 - About */
+.about {
+  background-color: lightgray;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.about h2 {
+  color: darkblue;
+  margin-bottom: 15px;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px 0;
+}
+
+.about strong {
+  color: darkblue;
+}
+
+/* Componente 3 - Hobbies */
+.hobbies {
+  background-color: lightgreen;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.hobbies h2 {
+  color: green;
+}
+
+.hobbies p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Componente 4 - Contact */
+.contact {
+  background-color: lightyellow;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.contact h2 {
+  color: orange;
+}
+
+.contact p {
+  font-size: 16px;
+}
+
+/* Componente 5 - Footer */
+.footer {
+  background-color: darkgray;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
