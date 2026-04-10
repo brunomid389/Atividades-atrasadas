@@ -3,21 +3,21 @@ Para entregar as atividades atrasadas do professor Italo da matéria de Educaç�
 
 atividades feitas esse anos:
 
-Entrega da Interface da Prototipagem do P.I
+Entrega da Interface da Prototipagem do P.I (Frontend PI)
 Front e Back juntos 
-Atividade de Fixação
+Atividade de Fixação (questionário)
 Aula Segunda- 30/03
 Aula - Segunda
 Template - Aula 15
 Tailwind CSS e React JS
-Envio do Documento da Proposta de P.I 
+Envio do Documento da Proposta de P.I (PI Documentação)
 Props no React
 Criando aplicação com Bootstrap
-Envio do certificado
+Envio do certificado (Não realmente atv)
 Aula 09 - Recriando Template e Inserindo Imagens
-Baixando Software
+Baixando Software (baixando software, não realmente atv)
 Aula - 07 - Swagger_UI_no_React_Aula e server_side_api
-Link da Inscrição - Cisco 2026
+Link da Inscrição - Cisco 2026 (Envio de link, não realmente atv)
 Aula 05- Parte 2
 Aula- 05 - Debug React
 React Aula- 03
@@ -25,6 +25,9 @@ Aula 02 - React
 Entendendo o react
 Correção do Projeto
 Atividade Revisão Desenvolvimento WEB
+Arquitetura node react axios e mysql (mmini projetos)
+Axios com Node.js (slide sem atv)
+Axios (slide sem atv)
 
 
 Atividades faltantes:
