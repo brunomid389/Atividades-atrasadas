@@ -1,0 +1,83 @@
+#Projeto um:
+
+Tem que fazer isso aqui antes:
+npm install express mysql2
+
+node:
+const express = require('express');
+const mysql = require('mysql2/promise');
+
+const app = express();
+
+const db = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'sua_senha',
+    database: 'seu_banco'
+});
+
+app.get('/usuarios', async (req, res) => {
+    const [results] = await db.query('SELECT * FROM usuarios');
+    res.json(results);
+});
+
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
+
+DB:
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    cargo VARCHAR(100)
+);
+
+INSERT INTO usuarios (nome, cargo) VALUES ('João', 'Admin'), ('Maria', 'Dev');
+
+#Projeto dois:
+
+Tem que fazer isso aqui antes:
+npm install axios
+
+MAIN:
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import UserCard from './UserCard';
+
+const api = axios.create({
+  baseURL: 'http://localhost:3000'
+});
+
+function App() {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    api.get('/usuarios').then(response => {
+      setUsuarios(response.data);
+    });
+  }, []);
+
+  return (
+    <div className="lista">
+      {usuarios.map(u => (
+        <UserCard key={u.id} user={u} />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+Component:
+import React from 'react';
+
+function UserCard({ user }) {
+  return (
+    <div style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
+      <h3>{user.nome}</h3>
+      <p>Cargo: {user.cargo}</p>
+    </div>
+  );
+}
+
+export default UserCard;
