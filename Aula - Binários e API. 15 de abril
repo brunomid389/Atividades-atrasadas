@@ -1,0 +1,51 @@
+Eu usei a tabela enviada e uma tabela separada de base64
+
+A 1ª gaveta (da esquerda) vale 32
+
+A 2ª gaveta vale 16
+
+A 3ª gaveta vale 8
+
+A 4ª gaveta vale 4
+
+A 5ª gaveta vale 2
+
+A 6ª gaveta (da direita) vale 1
+
+"=" é usado para ocupar o espaço quando o caractere não ocupa totalmente os bits disponibilizados.
+
+Paz {
+P = 80 = 01010000
+a = 97 = 01100001
+z = 122 = 01111010
+total: 010100000110000101111010
+de seis em seis: 010100 = 16 + 4 = 20 = U| 000110 = 4 + 2 = 6 = G | 000101 = 4 + 1 = 5 = F | 111010 = 32 + 16 + 8 + 2 = 58 = 6 
+PAZ = UGF6}
+
+Mar {
+M = 77 = 01001101
+a = 97 = 01100001
+r = 82 = 01010010
+total: 010011010110000101010010
+de seis em seis: 010011 = 16 + 2 + 1 = 19 = T| 010110 = 16 + 4 + 2 = 22 = W |000101 = 4 + 1 = 5 = F | 010010 = 16 + 2 = 18 = S
+Mar = TWFS}
+
+Eu {
+E = 69 = 10010000
+u = 85 = 01010101
+total: 1001000001010101
+de seis em seis: 100100 = 32 + 4 = 36 = g| 000101 = 4 + 1 = 5 = F |0101 = 16 + 4 = 20 = U |
+Eu = gFU=}
+
+M {
+M = 77 = 01001101
+De seis em seis: 010011 = 16 + 2 + 1 = 19 = T | 01 = 16 = Q
+M = TQ==}
+
+
+010011 = 16 + 2 + 1 = 19 = T===
+001110 = 8 + 4 + 2 = 14 = O===
+100100 = 32 + 4 = 36 = g===
+101111 = 32 + 8 + 4 + 2 + 1 = 47 = v===
+011001 = 16 + 8 + 1 = 25 = Z===
+
