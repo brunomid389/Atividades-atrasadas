@@ -1,0 +1,38 @@
+import './App.css';
+import Header from './components/Header';
+import Banner from './components/Banner';
+import List from './components/List';
+import Footer from './components/Footer';
+import eteh from "./assets/image/eteh.jpg";
+
+const App = () => {
+  const projectData = [
+    { id: 1, title: "Loucura", imgUrl: eteh },
+    { id: 2, title: "Psicodelia", imgUrl: eteh },
+    { id: 3, title: "Site", imgUrl: eteh },
+  ];
+
+  return (
+    <div className="App">
+      <Header />
+      
+      <Banner 
+        title="O Portfolio" 
+        subtitle="Todo começa simples: e aí fica pior."
+        buttonText="Por Favor!"
+      />
+
+      <List items={projectData} />
+
+      <Banner 
+        title="ALinhadinho?" 
+        subtitle="Vamos Logo!"
+        buttonText="Comunique"
+      />
+
+      <Footer />
+    </div>
+  );
+};
+
+export default App;

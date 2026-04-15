@@ -1,0 +1,19 @@
+import Card from "./Card";
+
+const List = ({ items }) => {
+  return (
+    <section className="row">
+      <div className="pic">
+        {items.map((item) => (
+          <Card 
+            key={item.id} 
+            image={item.imgUrl} 
+            title={item.title} 
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default List;

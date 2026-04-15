@@ -1,0 +1,16 @@
+import eteh from "../assets/image/eteh.jpg";
+
+const Banner = ({ title, subtitle, buttonText }) => {
+  return (
+    <div className="banner-container">
+      <img src={eteh} alt="Banner" />
+      <div className="overlay">
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
+        <button>{buttonText}</button>
+      </div>
+    </div>
+  );
+};
+
+export default Banner;

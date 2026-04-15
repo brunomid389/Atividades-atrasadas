@@ -1,0 +1,9 @@
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <p>All rights reserved. SoulCoast Creative © 2025 | Legal Pages</p>
+    </footer>
+  );
+};
+
+export default Footer;

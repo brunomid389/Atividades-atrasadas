@@ -1,0 +1,11 @@
+const Card = ({ image, title }) => {
+  return (
+    <div className="card">
+      <img src={image} alt={title} />
+      {title && <h3>{title}</h3>}
+      <button className="btn-card">VEja O PROJETO</button>
+    </div>
+  );
+};
+
+export default Card;

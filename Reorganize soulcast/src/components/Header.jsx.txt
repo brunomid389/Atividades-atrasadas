@@ -1,0 +1,14 @@
+const Header = () => {
+  return (
+    <header className="header">
+      <h1>Soul Coast</h1>
+      <div>
+        <a href="/">Home</a>
+        <a href="/Artigos">Artigos</a>
+        <a href="/Contatos">Contatos</a>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
