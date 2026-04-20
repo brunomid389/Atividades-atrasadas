@@ -1,0 +1,93 @@
+SQL:
+
+-- Criando o banco de dados
+CREATE DATABASE IF NOT EXISTS teste34;
+USE teste34;
+
+-- Criando a tabela 'users' conforme instrução 1 da imagem
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(120) NOT NULL,
+    email VARCHAR(120) NOT NULL
+);
+
+-- Comando para verificar os dados
+SELECT * FROM users;
+
+INDEX.JS:
+
+const express = require('express');
+const exphbs = require('express-handlebars');
+const mysql = require('mysql2');
+
+const app = express();
+
+// Configuração para ler dados do corpo da requisição (POST)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Configuração do Handlebars
+app.engine('handlebars', exphbs.engine());
+app.set('view engine', 'handlebars');
+app.use(express.static('public')); // Para carregar o style.css
+
+// PASSO 2: Criar a conexão com o MySQL
+const conn = mysql.createConnection({
+    host: 'localhost',
+    user: 'root', // substitua pelo seu usuário
+    password: '',     // substitua pela sua senha
+    database: 'teste34'
+});
+
+// DICA DA IMAGEM: Testar a conexão
+conn.connect(function (err) {
+    if (err) {
+        console.log('Erro ao conectar ao MySQL:', err);
+    } else {
+        console.log('Node está conversando com o MySQL!');
+    }
+});
+
+// Rota inicial - Renderiza o formulário (home.handlebars)
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
+// PASSO 3: Rota POST para salvar os dados com INSERT INTO
+app.post('/teste/insertteste', (req, res) => {
+    const { nome, email } = req.body;
+
+    const sql = `INSERT INTO users (nome, email) VALUES (?, ?)`;
+    const data = [nome, email];
+
+    conn.query(sql, data, function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.redirect('/teste'); // Redireciona para a listagem após inserir
+    });
+});
+
+// PASSO 4: Rota GET para buscar os usuários com SELECT
+app.get('/teste', (req, res) => {
+    const sql = "SELECT * FROM users";
+
+    conn.query(sql, function (err, data) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        
+        // Renderiza teste.handlebars enviando os dados do banco
+        res.render('teste', { teste: data }); 
+    });
+});
+
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
+
+
+OUTRA COISA IMPORTANTE:
+npm install express express-handlebars mysql2
