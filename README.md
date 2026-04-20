@@ -34,15 +34,13 @@ Aula - Binários e API
 Configurações Visual Code
 Composição e Reutilização - React
 Estruturação de Projeto
-
-
+Aula de terça
 
 
 Atividades faltantes:
 
 Aula- 06- Atividade de Fixação 
 Aula 10 - React Rotas
-Aula de terça
 Criação de Template com Node.js
 Atividade- Complemento do CRUD
 Concatenação Front e Back 
