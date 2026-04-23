@@ -1,0 +1,16 @@
+#Organização e Decisão
+Perguntei para o Gemini que montasse uma estrutura de pastas e me explicasse quais arquivos eu precisava criar.
+
+#src/components
+##Navbar
+O código da Navbar é reutilizado de um outro projeto, mas com as informações alteradas.
+
+#src/pages
+##Home
+A Home também foi parcialmente reutilizada de um outro projeto, com informações alteradas.
+##Servicos
+A page Servicos foi toda criada para esse projeto.
+##Contato
+Contato foi reutilizada de outro projeto, com algumas informações alteradas.
+
+src/styles
