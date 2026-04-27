@@ -37,6 +37,9 @@ Estruturação de Projeto
 Aula de terça
 Criação de Template com Node.js
 Atividade Construção de Tamplete 
+Atividade - debugger
+Forms de Fixação 
+Fundamentos de Observabilidade
 
 Atividades faltantes:
 
