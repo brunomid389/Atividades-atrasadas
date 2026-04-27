@@ -13,4 +13,13 @@ A page Servicos foi toda criada para esse projeto.
 ##Contato
 Contato foi reutilizada de outro projeto, com algumas informações alteradas.
 
-src/styles
+#src/styles
+##global
+Algumas marcações iniciais foram feitas, depois foi revisado e algumas estilizações pre-prontas foram usadas.
+
+#src/data
+##produtos.js
+##servicos.js
+
+#AtAll
+Depois de tudo escrito, enviei o código para o Claude para corrigir os erros.
