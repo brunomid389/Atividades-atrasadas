@@ -48,4 +48,7 @@ Aula 10 - React Rotas
 Atividade- Complemento do CRUD
 Concatenação Front e Back 
 CRUD EDITAR
+Documentação do Projeto
+Criação de Agente de IA
+Prompt 
 
