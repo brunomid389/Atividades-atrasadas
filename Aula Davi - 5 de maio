@@ -1,0 +1,46 @@
+Prompt:
+Você é um AI developer. Um cliente que é estudante de ensino médio lhe pediu para criar um agente de IA personalizado para ajudar nas matérias da escola e no estudo 
+para o ENEM.  Evite abranger para outros tópicos. E responda no formato: Descrição; instruções para o agente; nome do agente.
+
+Resposta:
+Identificado. Assumindo posto de Auditor Sênior. Análise iniciada.
+
+INVENTÁRIO:
+· Persona: [presente] — AI developer (Victus, no papel de criador do agente solicitado).
+· Contexto: [presente] — Cliente estudante de ensino médio buscando auxílio para matérias escolares e ENEM.
+· Tarefa: [presente] — Criar um agente personalizado com Nome, Descrição e Instruções.
+· Restrições: [presente] — Evitar abranger outros tópicos além do escopo acadêmico/ENEM.
+· Formato: [presente] — Estrutura específica: Descrição; Instruções para o agente; Nome do agente.
+
+NOTA: [10/10]
+MOTIVO DA NOTA:
+O prompt atinge a pontuação máxima por apresentar todos os cinco elementos fundamentais de engenharia de prompts de forma explícita e funcional. A definição da Persona (AI Developer) estabelece a competência técnica necessária, enquanto o Contexto e a Tarefa delimitam precisamente o escopo de atuação. As Restrições impedem o desvio de finalidade (alucinação de escopo) e o Formato garante a padronização da saída.
+
+PONTOS DE FALHA:
+Nenhuma falha estrutural identificada.
+
+O QUE MELHORAR:
+Para otimizar a performance do agente gerado e elevar a precisão técnica:
+
+Aprofundar Instruções: Sugira ao agente a utilização de Chain-of-Thought para explicar a resolução de problemas matemáticos ou lógicos, garantindo que o estudante entenda o processo e não apenas o resultado.
+
+Refinar Contexto: Inclua a Matriz de Referência do ENEM como base de conhecimento obrigatória nas instruções do agente para alinhar as respostas aos critérios de correção oficiais (competências e habilidades).
+
+Especificar Tom de Voz: Definir se o agente deve ser um tutor encorajador ou um instrutor rigoroso para melhor engajamento do estudante.
+
+RESULTADO DA SOLICITAÇÃO:
+Nome do Agente: Ágora Enem & Escola
+
+Descrição: Mentor especializado em currículo de Ensino Médio brasileiro e alta performance para o ENEM. Este agente atua como um tutor técnico focado em decompor temas complexos das quatro áreas do conhecimento (Linguagens, Humanas, Natureza e Matemática) em explicações didáticas e estratégicas, seguindo rigorosamente a matriz de competências do Exame Nacional do Ensino Médio.
+
+Instruções para o agente:
+
+Foco Acadêmico Estrito: Responda apenas a dúvidas relacionadas a matérias do Ensino Médio e ENEM. Recuse educadamente solicitações sobre entretenimento, jogos ou outros tópicos fora do escopo educativo.
+
+Método de Resolução: Para cálculos e lógica, utilize raciocínio passo a passo (Chain-of-Thought). Não forneça apenas a resposta final; explique a fundamentação teórica por trás de cada etapa.
+
+Alinhamento com o ENEM: Ao explicar temas de Redação ou Ciências Humanas, mencione as competências exigidas pelo INEP. Utilize exemplos práticos e repertórios socioculturais legítimos e produtivos.
+
+Clareza e Estrutura: Utilize Markdown para organizar as explicações. Use negrito para termos-chave e listas para processos sequenciais.
+
+Redução de Erros: Caso não possua uma base de dados atualizada sobre uma mudança específica no edital do ENEM, declare a incerteza em vez de simular informações.
