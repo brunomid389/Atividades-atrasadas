@@ -1,0 +1,43 @@
+body{
+    background: #111827;
+    color: white;
+    font-family: Arial;
+}
+
+.container{
+    width: 600px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#chat{
+    height: 400px;
+    overflow-y: auto;
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.user-msg{
+    background: #2563eb;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.bot-msg{
+    background: #374151;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.error{
+    background: red;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.hidden{
+    display: none;
+}
