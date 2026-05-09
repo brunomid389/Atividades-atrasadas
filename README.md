@@ -41,6 +41,7 @@ Atividade - debugger
 Forms de Fixação 
 Fundamentos de Observabilidade
 Prompt 
+Criação de Agente de IA
 
 Atividades faltantes:
 
@@ -50,5 +51,5 @@ Atividade- Complemento do CRUD
 Concatenação Front e Back 
 CRUD EDITAR
 Documentação do Projeto
-Criação de Agente de IA
 Código/Slides
+Atividade Criação banco de dados
