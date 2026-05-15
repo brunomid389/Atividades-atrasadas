@@ -203,3 +203,61 @@ void main() {
   } while (running);
   print('--- Execução finalizada com sucesso! ---');
 }
+
+
+void main() {
+  int progress = 0;
+  int increment = 20;
+  int maxProgress = 100;
+  print('Iniciando download...');
+  do {
+    print('Progresso: $progress%');
+    progress += increment;
+  } while (progress <= maxProgress);
+  print('Download concluído: $maxProgress%');
+}
+
+void main() {
+  int progress = 0;
+  int increment = 25;
+  int maxProgress = 100;
+  print('Iniciando carregamento do jogo...');
+
+  do {
+    print('Carregando: $progress%');
+    progress += increment;
+  } while (progress <= maxProgress);
+  print('Carregamento concluído: $maxProgress%');
+}
+
+
+void main() {
+  print('--- Loop FOR ---');
+  for (int i = 1; i <= 5; i++) {
+    print('Contagem FOR: $i');
+  }
+  print('\n--- Loop WHILE ---');
+  int countWhile = 1;
+  while (countWhile <= 5) {
+    print('Contagem WHILE: $countWhile');
+    countWhile++;
+  }
+  print('\n--- Loop DO-WHILE ---');
+  int countDoWhile = 1;
+  do {
+    print('Contagem DO-WHILE: $countDoWhile');
+    countDoWhile++;
+  } while (countDoWhile <= 5);
+}
+
+
+void main() {
+   String playerName = 'Jogador';
+  int totalStages = 5;
+   int pointsPerStage = 10;
+  int score = 0;
+  for (int stage = 1; stage <= totalStages; stage++) {
+    score += pointsPerStage;
+  }
+  print('$playerName: $score pontos');
+}
